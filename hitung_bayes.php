@@ -235,9 +235,10 @@ foreach ($maxPercentageDiseases as $maxDisease) {
     );
 }
 
-//bug nya mulai dari sini, string nya blum dibaca
 
 // Save data for each disease in the database
+$gejala_user = implode(', ', $gejala_user); // Convert array to comma-separated string
+
 foreach ($diseaseDataArray as $diseaseData) {
     $percentageValue = (float) rtrim($diseaseData['persen'], '%');
     $q_u_gejala = "UPDATE tblpengunjung SET gejala=?, penyakit=?, nl_bayes=?, pengobatan=? WHERE id_pengunjung=?";
